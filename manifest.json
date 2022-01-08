@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Wiktionary show specific language",
+  "description" : "In wiktionary.org go to a specfic language on load",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "minimum_chrome_version": "29",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["https://en.wiktionary.org/*"],
+      "js": ["language.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "browser_action": {
+    "default_popup": "options.html",
+    "default_icon": "icons/icon16.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  }
+}
